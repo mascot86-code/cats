@@ -1,4 +1,6 @@
 
+// Перед началом, раскоментировать массив, чтобы записать значения в localStorage
+
 // const cats = [
 //   {
 //     "id": "18t",
@@ -73,10 +75,21 @@
 // ]
 
 const catsList = document.querySelector('#cats-list')
-const cats = getState()
+const cats = getState() // Закоментировать перед записью массива в localStorage
 const favoritesText = document.querySelector('#favorites')
 const favoritesContent = document.querySelector('.favorites-inner')
 const favoritesList = document.querySelector('.favorites-cats')
+const preloader = document.querySelector('#preloader')
+
+setTimeout(() => {
+  preloader.remove()
+}, 3000)
+
+if (cats.length == 0) {
+  document.querySelector('body').innerHTML = `<div class="no-cats"><img src="cry.png"> <h1> No cats found </h1></div>`
+}
+
+
 
 catsList.addEventListener('click', changeFavoriteStatus)
 
@@ -119,7 +132,7 @@ function renderFavorites() {
     favoritesText.innerHTML = `<img src="star.png" alt="Favorite icon"> Favorites cats (${favorites.length})`
     favoritesContent.innerHTML = favorites.map(toCat).join('')
     favoritesList.style.display = 'block'
-  } 
+  }
 }
 
 

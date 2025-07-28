@@ -76,6 +76,7 @@ const catsList = document.querySelector('#cats-list')
 const cats = getState()
 const favoritesText = document.querySelector('#favorites')
 const favoritesContent = document.querySelector('.favorites-inner')
+const favoritesList = document.querySelector('.favorites-cats')
 
 catsList.addEventListener('click', changeFavoriteStatus)
 
@@ -112,10 +113,12 @@ function renderFavorites() {
   if (favorites.length == 0) {
     favoritesText.textContent = 'No favorites'
     favoritesContent.innerHTML = ''
+    favoritesList.style.display = 'none'
     setState()
   } else {
     favoritesText.textContent = `Favorites (${favorites.length})`
     favoritesContent.innerHTML = favorites.map(toCat).join('')
+    favoritesList.style.display = 'block'
   } 
 }
 

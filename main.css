@@ -1,0 +1,69 @@
+* {
+  font-family: "TikTok Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.cats-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.cats-list img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.favorites-inner {
+  display: flex;
+  white-space: nowrap;
+  gap: 10px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+}
+
+
+.favorites-inner img {
+  width: 24%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.favorites-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.favorites-cats {
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f2f2f2;
+  margin-bottom: 30px;
+}
+
+.cat-img {
+  cursor: pointer;
+}
+
+.cat-img.favorite {
+  opacity: .5;
+}
+
+.favorites-cats .cat-img {
+  cursor: unset;
+}
+
+.favorites-cats .cat-img.favorite {
+  opacity: unset;
+}

@@ -81,13 +81,10 @@ const favoritesContent = document.querySelector('.favorites-inner')
 const favoritesList = document.querySelector('.favorites-cats')
 const preloader = document.querySelector('#preloader')
 
-
-
 if (cats.length == 0) {
-  document.querySelector('body').innerHTML = `<div class="no-cats"><img src="cry.png"> <h1> No cats found </h1></div>`
+  document.querySelector('body').innerHTML = `
+  <div class="no-cats"><img src="cry.png"> <h1> No cats found </h1></div>`
 }
-
-
 
 catsList.addEventListener('click', changeFavoriteStatus)
 
@@ -100,13 +97,8 @@ function render() {
 }
 
 function toCat(cat) {
-  return `
-  
-  <img class="cat-img ${cat.isFavorite ? ' favorite' : ''}" src="${cat.url}" data-id=${cat.id}>
-  
-  `
+  return `<img class="cat-img ${cat.isFavorite ? ' favorite' : ''}" src="${cat.url}" data-id=${cat.id}>`
 }
-
 
 function changeFavoriteStatus(event) {
   if (event.target.classList.contains('cat-img')) {

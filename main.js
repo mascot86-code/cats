@@ -81,9 +81,7 @@ const favoritesContent = document.querySelector('.favorites-inner')
 const favoritesList = document.querySelector('.favorites-cats')
 const preloader = document.querySelector('#preloader')
 
-setTimeout(() => {
-  preloader.remove()
-}, 3000)
+
 
 if (cats.length == 0) {
   document.querySelector('body').innerHTML = `<div class="no-cats"><img src="cry.png"> <h1> No cats found </h1></div>`
@@ -94,6 +92,9 @@ if (cats.length == 0) {
 catsList.addEventListener('click', changeFavoriteStatus)
 
 function render() {
+  setTimeout(() => {
+    preloader.style.display = 'none'
+  }, 1000)
   catsList.innerHTML = cats.map(toCat).join('')
   renderFavorites()
 }
@@ -112,8 +113,10 @@ function changeFavoriteStatus(event) {
     const catId = event.target.dataset.id
     const cat = cats.find(cat => cat.id === catId)
     cat.isFavorite = !cat.isFavorite
+    preloader.style.display = 'flex'
     setState()
     render()
+
   }
 }
 
@@ -128,7 +131,7 @@ function renderFavorites() {
     favoritesContent.innerHTML = ''
     favoritesList.style.display = 'none'
   } else {
-    favoritesText.innerHTML = `<img src="star.png" alt="Favorite icon"> Favorites cats (${favorites.length})`
+    favoritesText.innerHTML = `<img src="star.png" alt="Favorite icon"> Favorites ${favorites.length}  cats`
     favoritesContent.innerHTML = favorites.map(toCat).join('')
     favoritesList.style.display = 'block'
   }

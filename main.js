@@ -116,7 +116,7 @@ function renderFavorites() {
     favoritesList.style.display = 'none'
     setState()
   } else {
-    favoritesText.textContent = `Favorites (${favorites.length})`
+    favoritesText.innerHTML = `<img src="star.png" alt="Favorite icon"> Favorites cats (${favorites.length})`
     favoritesContent.innerHTML = favorites.map(toCat).join('')
     favoritesList.style.display = 'block'
   } 

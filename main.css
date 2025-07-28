@@ -54,6 +54,13 @@
 
 .cat-img {
   cursor: pointer;
+  border-radius: 6px;
+}
+
+.cat-img:hover {
+  transform: scale(1.05);
+  transition: all .6s;
+  opacity: .6;
 }
 
 .cat-img.favorite {
@@ -62,8 +69,17 @@
 
 .favorites-cats .cat-img {
   cursor: unset;
+  transform: unset;
+  transition: unset;
+  opacity: unset;
 }
 
 .favorites-cats .cat-img.favorite {
   opacity: unset;
+}
+
+.favorites {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
